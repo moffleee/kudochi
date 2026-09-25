@@ -295,6 +295,66 @@
     background:rgba(255,255,255,0.02);
   }
 
+  .chapter-actions{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:12px;
+    margin:8px 0 36px;
+  }
+  .site-link{
+    font-size:13px;
+    letter-spacing:.04em;
+    color:var(--c-soft);
+    text-decoration:none;
+    border:1px solid var(--c);
+    padding:11px 22px;
+    border-radius:2px;
+    transition:background .2s ease;
+  }
+  .site-link:hover{ background:rgba(255,255,255,0.05); }
+  .choose-btn{
+    font-family:var(--sans);
+    font-size:13px;
+    letter-spacing:.04em;
+    color:var(--bg);
+    background:var(--c-soft);
+    border:1px solid var(--c-soft);
+    padding:11px 24px;
+    border-radius:2px;
+    cursor:pointer;
+    transition:opacity .15s ease, transform .15s ease;
+  }
+  .choose-btn:hover{ opacity:.88; }
+  .choose-btn:active{ transform:scale(.97); }
+
+  .pick-toast{
+    position:fixed;
+    left:50%;
+    bottom:28px;
+    transform:translate(-50%, 14px);
+    max-width:calc(100% - 40px);
+    background:var(--bg-panel);
+    border:1px solid var(--gold);
+    color:var(--ink);
+    font-family:var(--serif);
+    font-size:14px;
+    letter-spacing:.03em;
+    padding:14px 26px;
+    border-radius:2px;
+    text-align:center;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .35s ease, transform .35s ease;
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+    z-index:5000;
+  }
+  .pick-toast.is-visible{
+    opacity:1;
+    transform:translate(-50%, 0);
+  }
+
   .rooms{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
@@ -592,6 +652,11 @@
       <span class="tag">全室水風呂完備</span>
       <span class="tag">24時間 / 無人受付</span>
     </div>
+
+    <div class="chapter-actions">
+      <a class="site-link" href="https://kudochi-sauna.com/" target="_blank" rel="noopener">サイトを見る</a>
+      <button type="button" class="choose-btn" data-store="銀座店">これにする</button>
+    </div>
   </div>
 </section>
 
@@ -646,6 +711,11 @@
         <p>幾何学模様が美しい一室。25.4㎡。</p>
       </div>
     </div>
+
+    <div class="chapter-actions">
+      <a class="site-link" href="https://kudochi-sauna.com/roppongi/" target="_blank" rel="noopener">サイトを見る</a>
+      <button type="button" class="choose-btn" data-store="六本木店">これにする</button>
+    </div>
   </div>
 </section>
 
@@ -691,6 +761,11 @@
         <p class="rname">暁 -Akatsuki-</p>
         <p>白と光が調和する非日常空間。定員6名。120分23,800円〜。</p>
       </div>
+    </div>
+
+    <div class="chapter-actions">
+      <a class="site-link" href="https://kudochi-sauna.com/uenoyushima/" target="_blank" rel="noopener">サイトを見る</a>
+      <button type="button" class="choose-btn" data-store="上野湯島店">これにする</button>
     </div>
   </div>
 </section>
@@ -742,6 +817,11 @@
         <p>6名用。120分28,800円〜、いちばん豪奢な一室。</p>
       </div>
     </div>
+
+    <div class="chapter-actions">
+      <a class="site-link" href="https://kudochi-sauna.com/akasaka/" target="_blank" rel="noopener">サイトを見る</a>
+      <button type="button" class="choose-btn" data-store="赤坂店">これにする</button>
+    </div>
   </div>
 </section>
 
@@ -752,7 +832,25 @@
   </div>
 </section>
 
+<div class="pick-toast" id="pickToast" role="status" aria-live="polite"></div>
+
 <script>
+(function(){
+  var toast = document.getElementById('pickToast');
+  var hideTimer = null;
+  document.querySelectorAll('.choose-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      if(!toast) return;
+      toast.textContent = '後でLINEに送りまっす';
+      toast.classList.add('is-visible');
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(function(){
+        toast.classList.remove('is-visible');
+      }, 2600);
+    });
+  });
+})();
+
 (function(){
   var splash = document.getElementById('bdaySplash');
   var layer = document.getElementById('bdayConfetti');
