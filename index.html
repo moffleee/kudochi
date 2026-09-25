@@ -760,7 +760,7 @@
 
   var colors = ['#caa25a', '#e3c98c', '#f4ede1', '#d6537c', '#cfe3e8'];
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var count = reduceMotion ? 0 : 70;
+  var count = reduceMotion ? 0 : 90;
 
   for(var i = 0; i < count; i++){
     var piece = document.createElement('span');
@@ -770,15 +770,15 @@
     piece.style.width = size + 'px';
     piece.style.height = (size * 0.4) + 'px';
     piece.style.background = colors[Math.floor(Math.random() * colors.length)];
-    piece.style.animationDuration = (2.6 + Math.random() * 2.4) + 's';
-    piece.style.animationDelay = (Math.random() * 1.3) + 's';
+    piece.style.animationDuration = (3.2 + Math.random() * 2.8) + 's';
+    piece.style.animationDelay = (Math.random() * 4.2) + 's';
     piece.style.opacity = (0.55 + Math.random() * 0.4).toFixed(2);
     layer.appendChild(piece);
   }
 
   document.body.style.overflow = 'hidden';
 
-  var holdMs = reduceMotion ? 2200 : 4200;
+  var holdMs = reduceMotion ? 2200 : 8000;
   setTimeout(function(){
     splash.classList.add('is-hidden');
     document.body.style.overflow = '';
