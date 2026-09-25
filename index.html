@@ -30,6 +30,11 @@
     --ueno-soft:#cfe3e8;
     --akasaka:#2f8f7f;
     --akasaka-soft:#c9ead9;
+
+    --ooo:#8a6d3b;
+    --ooo-soft:#e8d9b8;
+    --therapy:#9b6b8f;
+    --therapy-soft:#e8d3e3;
   }
 
   *{box-sizing:border-box;}
@@ -431,10 +436,31 @@
   .chapter[data-store="roppongi"]{ --c:var(--roppongi); --c-soft:var(--roppongi-soft); }
   .chapter[data-store="ueno"]{ --c:var(--ueno); --c-soft:var(--ueno-soft); }
   .chapter[data-store="akasaka"]{ --c:var(--akasaka); --c-soft:var(--akasaka-soft); }
+  .chapter[data-store="ooo"]{ --c:var(--ooo); --c-soft:var(--ooo-soft); }
+  .chapter[data-store="therapy"]{ --c:var(--therapy); --c-soft:var(--therapy-soft); }
   .compare-card[data-store="ginza"]{ --c:var(--ginza); --c-soft:var(--ginza-soft); }
   .compare-card[data-store="roppongi"]{ --c:var(--roppongi); --c-soft:var(--roppongi-soft); }
   .compare-card[data-store="ueno"]{ --c:var(--ueno); --c-soft:var(--ueno-soft); }
   .compare-card[data-store="akasaka"]{ --c:var(--akasaka); --c-soft:var(--akasaka-soft); }
+  .compare-card[data-store="ooo"]{ --c:var(--ooo); --c-soft:var(--ooo-soft); }
+  .compare-card[data-store="therapy"]{ --c:var(--therapy); --c-soft:var(--therapy-soft); }
+
+  /* ---------- Business-type divider ---------- */
+  .type-divider{
+    padding:56px 0 0;
+    text-align:center;
+  }
+  .type-divider .mark{
+    letter-spacing:.6em;
+    font-size:11px;
+    color:var(--gold);
+  }
+  .divider-intro{
+    padding:34px 0 60px;
+    text-align:center;
+    border-top:1px solid var(--line);
+    margin-top:34px;
+  }
 
   /* ---------- Birthday splash ---------- */
   .bday-splash{
@@ -821,6 +847,126 @@
     <div class="chapter-actions">
       <a class="site-link" href="https://kudochi-sauna.com/akasaka/" target="_blank" rel="noopener">サイトを見る</a>
       <button type="button" class="choose-btn" data-store="赤坂店">これにする</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TYPE DIVIDER ================= -->
+<div class="type-divider"><div class="mark">&#9670; &#9670; &#9670;</div></div>
+<section class="divider-intro">
+  <div class="wrap">
+    <div class="kicker">Beyond KUDOCHI</div>
+    <h2 class="section-title">番外編 &mdash; 他ブランドのサウナも。</h2>
+    <p>ここからはKUDOCHIとは運営会社もコンセプトも異なる、番外編の2軒。茶室のような静けさや、女性専用の香るサウナなど、個性派をまとめました。</p>
+  </div>
+</section>
+
+<section class="compare">
+  <div class="wrap">
+    <div class="compare-grid">
+      <div class="compare-card" data-store="ooo">
+        <div class="num">Extra 01 &mdash; Higashi-Nihombashi</div>
+        <h3>SAUNA OOO TOKYO</h3>
+        <p class="mood">△と▢、2つの個室で語らう「コミュニケーションサウナ」。茶室のような静けさ。</p>
+        <a href="#ooo">見る &rarr;</a>
+      </div>
+      <div class="compare-card" data-store="therapy">
+        <div class="num">Extra 02 &mdash; Omotesando</div>
+        <h3>SaunaTherapy 表参道</h3>
+        <p class="mood">女性専用・完全個室。香りとアロマトリートメントで、内側から整えるサウナ。</p>
+        <a href="#therapy">見る &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SAUNA OOO TOKYO ================= -->
+<section class="chapter" id="ooo" data-store="ooo">
+  <div class="wrap">
+    <div class="chapter-head">
+      <div class="chapter-eyebrow">番外編 01 &mdash; Different Brand</div>
+      <h2 class="chapter-name">SAUNA OOO TOKYO<span class="en">HIGASHI-NIHOMBASHI &mdash; communication sauna</span></h2>
+      <p class="chapter-catch">「語らうためのサウナ。」<br>茶室のような佇まいで、ふたりの時間を静かに満たす一軒。</p>
+    </div>
+
+    <div class="recommend">
+      <span class="lbl">こんな時間に</span>
+      <p>「じっくり話したい相手と。」大切な人との内緒話にも、静かに向き合いたい日にも。</p>
+    </div>
+
+    <img class="hero-shot" src="https://ooo-sauna.com/resources/images/higashi-nihonbashi/gallery/1.jpg" alt="SAUNA OOO TOKYO メインビジュアル" loading="lazy">
+    <div class="gallery">
+      <img src="https://ooo-sauna.com/resources/images/higashi-nihonbashi/gallery/2.jpg" alt="SAUNA OOO TOKYO 室内の様子" loading="lazy">
+      <img src="https://ooo-sauna.com/resources/images/higashi-nihonbashi/gallery/3.jpg" alt="SAUNA OOO TOKYO 室内の様子" loading="lazy">
+      <img src="https://ooo-sauna.com/resources/images/higashi-nihonbashi/gallery/4.jpg" alt="SAUNA OOO TOKYO コンセプトイメージ" loading="lazy">
+    </div>
+
+    <div class="chapter-body">
+      <p>KUDOCHIとは運営会社の異なる、完全予約制の「コミュニケーションサウナ」。茶室をイメージした畳の空間で、△（サンカク）と▢（シカク）2種の個室を用意。ひとりでも、誰かと語らうためにも使える、静けさに寄った一軒です。</p>
+      <p>セルフロウリュや水風呂はもちろん、休憩スペースにはカフェも併設。オロポやかき氷を片手に、ゆっくり過ごせます。</p>
+    </div>
+
+    <div class="tag-row">
+      <span class="tag">△▢ 2種の個室</span>
+      <span class="tag">完全予約制</span>
+      <span class="tag">カフェスペース併設</span>
+      <span class="tag">馬喰横山駅 徒歩30秒</span>
+    </div>
+
+    <div class="rooms">
+      <div class="room-card">
+        <p class="rname">▢ シカクの部屋</p>
+        <p>26㎡・最大6名。120分15,000円〜。</p>
+      </div>
+      <div class="room-card">
+        <p class="rname">△ サンカクの部屋</p>
+        <p>18㎡・最大3名。120分9,000円〜。</p>
+      </div>
+    </div>
+
+    <div class="chapter-actions">
+      <a class="site-link" href="https://ooo-sauna.com/tokyo.html" target="_blank" rel="noopener">サイトを見る</a>
+      <button type="button" class="choose-btn" data-store="SAUNA OOO TOKYO">これにする</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SAUNATHERAPY OMOTESANDO ================= -->
+<section class="chapter" id="therapy" data-store="therapy">
+  <div class="wrap">
+    <div class="chapter-head">
+      <div class="chapter-eyebrow">番外編 02 &mdash; Different Brand</div>
+      <h2 class="chapter-name">SaunaTherapy 表参道<span class="en">OMOTESANDO &mdash; women-only sauna</span></h2>
+      <p class="chapter-catch">「香るサウナ。調和する私。」<br>日本初、女性専用・完全個室のプライベートサウナ。</p>
+    </div>
+
+    <div class="recommend">
+      <span class="lbl">こんな時間に</span>
+      <p>「ひとりで、内側から整えたい日に。」仕事や家事に追われた週の、自分だけのご褒美時間に。</p>
+    </div>
+
+    <img class="hero-shot" src="https://otonamuse.jp/wp/wp-content/uploads/2022/03/%E3%82%A8%E3%83%B3%E3%83%88%E3%83%A9%E3%83%B3%E3%82%B9-1920x1440.jpg" alt="SaunaTherapy 表参道 エントランス" loading="lazy">
+    <div class="gallery">
+      <img src="https://otonamuse.jp/wp/wp-content/uploads/2022/03/%E6%B0%B4%E9%A2%A8%E5%91%82%EF%BC%91-1440x960.jpg" alt="SaunaTherapy 表参道 水風呂" loading="lazy">
+      <img src="https://otonamuse.jp/wp/wp-content/uploads/2022/03/IMG_9601-1440x960.jpg" alt="SaunaTherapy 表参道 室内の様子" loading="lazy">
+      <img src="https://otonamuse.jp/wp/wp-content/uploads/2022/03/IMG_9692-1440x960.jpg" alt="SaunaTherapy 表参道 アメニティ" loading="lazy">
+    </div>
+
+    <div class="chapter-body">
+      <p>KUDOCHIとは業態の異なる、女性専用・完全個室のプライベートサウナ。フィンランドiki社製のストーブでセルフロウリュを楽しみ、全面タイル張りの水風呂で仕上げる、香りにこだわった空間です。</p>
+      <p>サウナのあとはアロマトリートメントや鍼、ウィスキングなど、心と体に寄り添う施術も選べます。パウダールームやアメニティも充実していて、手ぶらでふらっと立ち寄れるのも魅力です。</p>
+    </div>
+
+    <div class="tag-row">
+      <span class="tag">女性専用・完全個室</span>
+      <span class="tag">フィンランドiki製ストーブ</span>
+      <span class="tag">アロマ・鍼・ウィスキング</span>
+      <span class="tag">表参道駅 徒歩5分</span>
+    </div>
+
+    <div class="chapter-actions">
+      <a class="site-link" href="https://saunatherapy.me/" target="_blank" rel="noopener">サイトを見る</a>
+      <button type="button" class="choose-btn" data-store="SaunaTherapy 表参道">これにする</button>
     </div>
   </div>
 </section>
