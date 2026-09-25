@@ -333,6 +333,21 @@
   }
   .choose-btn:hover{ opacity:.88; }
   .choose-btn:active{ transform:scale(.97); }
+  .name-input{
+    font-family:var(--sans);
+    font-size:13px;
+    letter-spacing:.02em;
+    color:var(--ink);
+    background:var(--bg);
+    border:1px solid var(--line);
+    padding:10px 14px;
+    border-radius:2px;
+    outline:none;
+    width:130px;
+    transition:border-color .15s ease;
+  }
+  .name-input::placeholder{ color:var(--ink-faint); }
+  .name-input:focus{ border-color:var(--c-soft); }
 
   .pick-toast{
     position:fixed;
@@ -681,6 +696,7 @@
 
     <div class="chapter-actions">
       <a class="site-link" href="https://kudochi-sauna.com/" target="_blank" rel="noopener">サイトを見る</a>
+      <input type="text" class="name-input" placeholder="お名前" maxlength="20">
       <button type="button" class="choose-btn" data-store="銀座店">これにする</button>
     </div>
   </div>
@@ -740,6 +756,7 @@
 
     <div class="chapter-actions">
       <a class="site-link" href="https://kudochi-sauna.com/roppongi/" target="_blank" rel="noopener">サイトを見る</a>
+      <input type="text" class="name-input" placeholder="お名前" maxlength="20">
       <button type="button" class="choose-btn" data-store="六本木店">これにする</button>
     </div>
   </div>
@@ -791,6 +808,7 @@
 
     <div class="chapter-actions">
       <a class="site-link" href="https://kudochi-sauna.com/uenoyushima/" target="_blank" rel="noopener">サイトを見る</a>
+      <input type="text" class="name-input" placeholder="お名前" maxlength="20">
       <button type="button" class="choose-btn" data-store="上野湯島店">これにする</button>
     </div>
   </div>
@@ -846,6 +864,7 @@
 
     <div class="chapter-actions">
       <a class="site-link" href="https://kudochi-sauna.com/akasaka/" target="_blank" rel="noopener">サイトを見る</a>
+      <input type="text" class="name-input" placeholder="お名前" maxlength="20">
       <button type="button" class="choose-btn" data-store="赤坂店">これにする</button>
     </div>
   </div>
@@ -926,6 +945,7 @@
 
     <div class="chapter-actions">
       <a class="site-link" href="https://ooo-sauna.com/tokyo.html" target="_blank" rel="noopener">サイトを見る</a>
+      <input type="text" class="name-input" placeholder="お名前" maxlength="20">
       <button type="button" class="choose-btn" data-store="SAUNA OOO TOKYO">これにする</button>
     </div>
   </div>
@@ -966,6 +986,7 @@
 
     <div class="chapter-actions">
       <a class="site-link" href="https://saunatherapy.me/" target="_blank" rel="noopener">サイトを見る</a>
+      <input type="text" class="name-input" placeholder="お名前" maxlength="20">
       <button type="button" class="choose-btn" data-store="SaunaTherapy 表参道">これにする</button>
     </div>
   </div>
@@ -982,10 +1003,39 @@
 
 <script>
 (function(){
+  // GASのWebアプリを公開したら、発行された /exec URLをここに貼る
+  var LOG_URL = 'https://script.google.com/macros/s/AKfycbzHADgMpwkyxng9C5ZH1evcvl_7oF8H3x-vwl5PJjpdCGKIdz9OBS5-QKbNHsSalsAg/exec';
+
   var toast = document.getElementById('pickToast');
   var hideTimer = null;
   document.querySelectorAll('.choose-btn').forEach(function(btn){
     btn.addEventListener('click', function(){
+      var store = btn.dataset.store || '';
+      var wrap = btn.closest('.chapter-actions');
+      var nameInput = wrap ? wrap.querySelector('.name-input') : null;
+      var name = nameInput ? nameInput.value.trim() : '';
+
+      if(!name){
+        if(nameInput){
+          nameInput.style.borderColor = 'var(--roppongi)';
+          nameInput.focus();
+        }
+        alert('お名前を入力してから押してね');
+        return;
+      }
+      if(nameInput) nameInput.style.borderColor = '';
+
+      if(LOG_URL.indexOf('XXXX') === -1){
+        try{
+          fetch(LOG_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify({ store: store, name: name })
+          });
+        }catch(err){ /* 記録に失敗しても表示は続ける */ }
+      }
+
       if(!toast) return;
       toast.textContent = '後でLINEに送りまっす';
       toast.classList.add('is-visible');
